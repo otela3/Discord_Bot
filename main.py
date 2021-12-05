@@ -80,6 +80,13 @@ async def stop(ctx):
         voice.stop()
         await ctx.send('Stopping...')
 
+@client.command(name='skip', help='pa saltar la wa')
+async def skip(ctx):
+    voice = get(client.voice_clients, guild=ctx.guild)
+    if voice.is_playing():
+        voice.skip()
+        await ctx.send('skiping...')
+
 
 # command to clear channel messages
 @client.command()
